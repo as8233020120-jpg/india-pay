@@ -1,6 +1,6 @@
 // Supabase Configuration
-const SUPABASE_URL = "YOUR_SUPABASE_URL_HERE"; // यहाँ अपनी Project URL डालें
-const SUPABASE_ANON_KEY = "YOUR_SUPABASE_ANON_KEY_HERE"; // यहाँ अपनी Anon / Publishable Key डालें
+const SUPABASE_URL = "https://vrsvqlitruooezawires.supabase.co/rest/v1/"; // यहाँ अपनी Project URL डालें
+const SUPABASE_ANON_KEY = "sb_publishable_RID2VKRjuwTH5S1D7fOp0g_hqyuDwuI"; // यहाँ अपनी Anon / Publishable Key डालें
 
 // Initialize Supabase Client
 const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
