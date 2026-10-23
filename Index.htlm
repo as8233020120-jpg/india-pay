@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>India Pay - भारत का सबसे भरोसेमंद नेटवर्क</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Supabase JS Library -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Branding Header -->
+    <div class="brand-header">
+      <h1 class="brand-title">India Pay</h1>
+      <p class="brand-tagline">भारत का सबसे भरोसेमंद नेटवर्क</p>
+      <div class="brand-features">
+        <span>FAST</span> • <span>SECURE 🔐</span> • <span>SIMPLE</span>
+      </div>
+    </div>
+
+    <!-- Auth Box -->
+    <div class="auth-box">
+      <!-- Tab Switcher -->
+      <div class="tab-buttons">
+        <button id="loginTabBtn" class="tab-btn active" onclick="switchTab('login')">Login</button>
+        <button id="signupTabBtn" class="tab-btn" onclick="switchTab('signup')">Sign Up</button>
+      </div>
+
+      <!-- Login Form -->
+      <form id="loginForm" class="auth-form active-form" onsubmit="handleLogin(event)">
+        <div class="input-group">
+          <label>Email ID / Mobile Number</label>
+          <input type="text" id="loginEmail" placeholder="Enter your email or mobile" required>
+        </div>
+        <div class="input-group">
+          <label>Password</label>
+          <input type="password" id="loginPassword" placeholder="Enter password" required>
+        </div>
+        <button type="submit" class="submit-btn">Login</button>
+      </form>
+
+      <!-- Signup Form -->
+      <form id="signupForm" class="auth-form" onsubmit="handleSignup(event)">
+        <div class="input-group">
+          <label>Full Name</label>
+          <input type="text" id="signupName" placeholder="Enter full name" required>
+        </div>
+        <div class="input-group">
+          <label>Mobile Number</label>
+          <input type="tel" id="signupPhone" placeholder="Enter 10-digit mobile number" required>
+        </div>
+        <div class="input-group">
+          <label>Email ID</label>
+          <input type="email" id="signupEmail" placeholder="Enter email address" required>
+        </div>
+        <div class="input-group">
+          <label>New Password</label>
+          <input type="password" id="signupPassword" placeholder="Create password" required>
+        </div>
+        <div class="input-group">
+          <label>Confirm Password</label>
+          <input type="password" id="signupConfirmPassword" placeholder="Confirm password" required>
+        </div>
+        <button type="submit" class="submit-btn">Register</button>
+      </form>
+
+      <p id="authMessage" class="message"></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+  
