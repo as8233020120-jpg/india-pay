@@ -1,6 +1,6 @@
 // Supabase Configuration
-const SUPABASE_URL = "https://vrsvqlitruooezawires.supabase.co/rest/v1/"; // यहाँ अपनी Project URL डालें
-const SUPABASE_ANON_KEY = "sb_publishable_RID2VKRjuwTH5S1D7fOp0g_hqyuDwuI"; // यहाँ अपनी Anon / Publishable Key डालें
+const SUPABASE_URL = "https://vrsvqlitruooezawires.supabase.co"; // Correct Base Supabase URL
+const SUPABASE_ANON_KEY = "sb_publishable_RID2VKRjuwTH5S1D7fOp0g_hqyuDwuI"; 
 
 // Initialize Supabase Client
 const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
@@ -38,14 +38,20 @@ async function handleSignup(e) {
   const confirmPassword = document.getElementById('signupConfirmPassword').value;
   const authMessage = document.getElementById('authMessage');
 
+  if (password.length < 6) {
+    authMessage.style.color = '#ff6b6b';
+    authMessage.textContent = 'Password kam se kam 6 characters ka hona chahiye!';
+    return;
+  }
+
   if (password !== confirmPassword) {
     authMessage.style.color = '#ff6b6b';
-    authMessage.textContent = 'Password and Confirm Password do not match!';
+    authMessage.textContent = 'Password aur Confirm Password match nahi ho rahe!';
     return;
   }
 
   authMessage.style.color = '#f39c12';
-  authMessage.textContent = 'Creating account...';
+  authMessage.textContent = 'Creating account... Kripya prateeksha karein.';
 
   // Sign up via Supabase Auth
   const { data, error } = await supabase.auth.signUp({
@@ -61,11 +67,11 @@ async function handleSignup(e) {
 
   if (error) {
     authMessage.style.color = '#ff6b6b';
-    authMessage.textContent = error.message;
+    authMessage.textContent = 'Error: ' + error.message;
   } else {
     authMessage.style.color = '#2ecc71';
-    authMessage.textContent = 'Registration successful! You can now login.';
-    setTimeout(() => switchTab('login'), 1500);
+    authMessage.textContent = 'Registration successful! Aap ab Login kar sakte hain.';
+    setTimeout(() => switchTab('login'), 2000);
   }
 }
 
@@ -86,9 +92,9 @@ async function handleLogin(e) {
 
   if (error) {
     authMessage.style.color = '#ff6b6b';
-    authMessage.textContent = error.message;
+    authMessage.textContent = 'Error: ' + error.message;
   } else {
     authMessage.style.color = '#2ecc71';
-    authMessage.textContent = 'Login successful!';
+    authMessage.textContent = 'Login Successful! Welcome to India Pay.';
   }
 }
